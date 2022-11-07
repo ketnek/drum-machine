@@ -1,0 +1,35 @@
+#volumeSliderContainer {
+  width: 80%;
+}
+
+#volumeSlider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 5px;
+  background: var(--blue);
+  outline: none;
+}
+
+#volumeSlider:hover {
+  opacity: 1;
+}
+
+#volumeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 25px;
+  background: var(--red);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#volumeSlider::-moz-range-thumb {
+  width: 10px;
+  height: 25px;
+  border-radius: 50%;
+  background: var(--red);
+  cursor: pointer;
+  border-radius: 5px;
+}

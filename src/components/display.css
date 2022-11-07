@@ -1,8 +1,10 @@
-#app {
+#display {
+  width: 70%;
+  height: 40px;
   background-color: var(--blue);
-  height: 100vh;
-  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--red);
+  font-weight: bold;
 }

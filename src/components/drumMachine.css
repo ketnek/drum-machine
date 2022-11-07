@@ -1,0 +1,20 @@
+#drum-machine {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--cream);
+  margin: 1rem;
+  border: 5px solid var(--blue);
+  box-shadow: 1px 1px 20px 5px var(--red);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 500px) {
+  #drum-machine {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+}

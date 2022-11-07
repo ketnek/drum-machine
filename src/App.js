@@ -1,10 +1,12 @@
 import './App.css';
+import { DrumMachine } from './components/drumMachine';
+import { sounds } from './sounds'
 
 function App() {
   return (
-    <>
-      <h1>Hallo</h1>
-    </>
+    <div id='app'>
+      <DrumMachine sounds={sounds} />
+    </div>
   );
 }
 

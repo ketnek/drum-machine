@@ -1,0 +1,10 @@
+#controllArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  height: 250px;
+  width: 250px;
+  color: var(--blue);
+}
