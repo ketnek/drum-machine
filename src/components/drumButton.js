@@ -1,11 +1,50 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './drumButton.css'
 
-export const DrumButton = ({ letter, name, link }) => {
+
+export const DrumButton = ({ letter, name, link, setMessage, audioVolume, powerState }) => {
+
+  // Keyboard controlling
+  useEffect(() => {
+    document.addEventListener('keypress',
+
+      (e) => {
+        const audioElement = document.getElementById(e.key.toUpperCase());
+
+        // sets the volume and played the audio
+        audioElement.volume = audioVolume;
+        audioElement.play();
+
+        // sets message for the display component
+        !powerState
+          ? setMessage('')
+          : setMessage(audioElement.parentElement.id);
+
+        // sets visual effect for the triggered button
+        audioElement.parentElement.classList.add('keyPush');
+        setTimeout(() => {
+          audioElement.parentElement.classList.remove('keyPush');
+        }, 200);
+      })
+  });
+
+  // Mouse controlling
+  const playAudio = (e) => {
+
+    // sets the volume and played the audio
+    e.target.children[0].volume = audioVolume;
+    e.target.children[0].play();
+
+    // sets message for the display component
+    !powerState
+      ? setMessage('')
+      : setMessage(name);
+  }
+
   return (
-    <button className="drum-pad" id={name}>
+    <button onClick={playAudio} className="drum-pad" id={name}>
       {letter}
-      <audio className='clip' id={letter} src={link} />
+      <audio volume={audioVolume} className='clip' id={letter} src={link} />
     </button>
   );
 }
