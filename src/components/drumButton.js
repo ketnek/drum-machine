@@ -11,8 +11,10 @@ export const DrumButton = ({ letter, name, link, setMessage, audioVolume, powerS
       (e) => {
         const audioElement = document.getElementById(e.key.toUpperCase());
 
-        // sets the volume and played the audio
-        audioElement.volume = audioVolume;
+        // sets the volume and played the audio#
+        !powerState
+          ? audioElement.volume = 0
+          : audioElement.volume = audioVolume;
         audioElement.play();
 
         // sets message for the display component
@@ -32,7 +34,9 @@ export const DrumButton = ({ letter, name, link, setMessage, audioVolume, powerS
   const playAudio = (e) => {
 
     // sets the volume and played the audio
-    e.target.children[0].volume = audioVolume;
+    !powerState
+      ? e.target.children[0].volume = 0
+      : e.target.children[0].volume = audioVolume;
     e.target.children[0].play();
 
     // sets message for the display component

@@ -2,13 +2,10 @@ import React from "react";
 import './volumeSlider.css';
 
 
-export const VolumeSlider = ({ setVolume, powerState }) => {
+export const VolumeSlider = ({ setVolume }) => {
 
   const handleVolume = (e) => {
-
-    !powerState
-      ? setVolume(0)
-      : setVolume(e.target.value / 100);
+    setVolume(e.target.value / 100);
   }
 
   return (

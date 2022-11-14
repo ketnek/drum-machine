@@ -7,7 +7,7 @@ import { DrumPad } from "./drumPad";
 export const DrumMachine = ({ sounds }) => {
   const [displayMessage, setMessage] = useState('');
   const [powerState, setPowerState] = useState(true);
-  const [audioVolume, setVolume] = useState(!powerState ? 0 : 0.5);
+  const [audioVolume, setVolume] = useState(0.5);
   const [bankState, setBankState] = useState(true);
 
 
