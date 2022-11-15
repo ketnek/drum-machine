@@ -3,7 +3,14 @@ import './drumPad.css'
 import { DrumPadGenerator } from "./drumPadGenerator";
 
 
-export const DrumPad = ({ sounds, setMessage, audioVolume, powerState }) => {
+export const DrumPad = (
+  {
+    sounds,
+    setMessage,
+    audioVolume,
+    powerState
+  }
+) => {
 
   return (
     <div id="drumPad">
@@ -11,8 +18,7 @@ export const DrumPad = ({ sounds, setMessage, audioVolume, powerState }) => {
         sounds={sounds}
         setMessage={setMessage}
         audioVolume={audioVolume}
-        powerState={powerState}
-      />
+        powerState={powerState} />
     </div>
   );
 }

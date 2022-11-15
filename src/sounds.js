@@ -1,4 +1,4 @@
-export const sounds = [
+export const soundsBank1 = [
   {
     key: 'Q',
     name: 'Heater1',

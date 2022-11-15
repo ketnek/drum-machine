@@ -1,28 +1,35 @@
 import React from "react";
 import './controllArea.css';
+import { BankSwitch } from "./bankSwitch";
 import { Display } from "./display";
-import { ToggleSwitch } from "./toggleSwitch";
+import { PowerSwitch } from "./powerSwitch";
 import { VolumeSlider } from "./volumeSlider";
 
 
-export const ControllArea = ({ displayMessage, setVolume, bankState, powerState, setBankState, setPowerState }) => {
+export const ControllArea = (
+  {
+    displayMessage,
+    setVolume,
+    bankState,
+    powerState,
+    setBankState,
+    setPowerState
+  }
+) => {
 
   return (
     <div id="controllArea">
-      <ToggleSwitch
-        id='powerSwitch'
-        headline='Power'
+      <PowerSwitch
         powerState={powerState}
-        setPowerState={setPowerState}
-      />
-      <Display powerState={powerState} displayMessage={displayMessage} />
-      <VolumeSlider setVolume={setVolume} />
-      <ToggleSwitch
-        id='bankSwitch'
-        headline='Bank'
+        setPowerState={setPowerState} />
+      <Display
+        powerState={powerState}
+        displayMessage={displayMessage} />
+      <VolumeSlider
+        setVolume={setVolume} />
+      <BankSwitch
         bankState={bankState}
-        setBankState={setBankState}
-      />
+        setBankState={setBankState} />
     </div>
   );
 }

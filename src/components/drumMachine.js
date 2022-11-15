@@ -4,18 +4,22 @@ import { ControllArea } from "./controllArea";
 import { DrumPad } from "./drumPad";
 
 
-export const DrumMachine = ({ sounds }) => {
+export const DrumMachine = ({ soundsBank1, soundsBank2 }) => {
+
   const [displayMessage, setMessage] = useState('');
   const [powerState, setPowerState] = useState(true);
   const [audioVolume, setVolume] = useState(0.5);
   const [bankState, setBankState] = useState(true);
 
-
+  const selectedSoundBank =
+    bankState
+      ? soundsBank1
+      : soundsBank2;
 
   return (
     <div id="drum-machine">
       <DrumPad
-        sounds={sounds}
+        sounds={selectedSoundBank}
         setMessage={setMessage}
         powerState={powerState}
         audioVolume={audioVolume} />
@@ -25,8 +29,7 @@ export const DrumMachine = ({ sounds }) => {
         powerState={powerState}
         bankState={bankState}
         setBankState={setBankState}
-        setPowerState={setPowerState}
-      />
+        setPowerState={setPowerState} />
     </div>
   );
 }

@@ -2,29 +2,7 @@ import React from "react";
 import './toggleSwitch.css';
 
 
-export const ToggleSwitch = (
-  {
-    id,
-    headline,
-    bankState,
-    powerState,
-    setBankState,
-    setPowerState
-  }
-) => {
-
-
-  const handleClick = (e) => {
-    if (e.target.id === 'powerSwitch' && powerState) {
-      setPowerState(false);
-    } else if (e.target.id === 'powerSwitch' && !powerState) {
-      setPowerState(true);
-    } else if (e.target.id === 'bankSwitch' && bankState) {
-      setBankState(false);
-    } else {
-      setBankState(true);
-    }
-  }
+export const ToggleSwitch = ({ id, headline, handleClick }) => {
 
   return (
     <div className="switch">

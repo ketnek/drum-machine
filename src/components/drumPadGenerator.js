@@ -2,17 +2,24 @@ import React, { useEffect } from "react";
 import { DrumButton } from "./drumButton";
 
 
-
-export const DrumPadGenerator = ({ sounds, setMessage, audioVolume, powerState }) => {
+export const DrumPadGenerator = (
+  {
+    sounds,
+    setMessage,
+    audioVolume,
+    powerState
+  }
+) => {
 
   // Keyboard controlling
   useEffect(() => {
     document.addEventListener('keypress',
-
       (e) => {
+
+        // selects an audio element depending on triggered drumButton
         const audioElement = document.getElementById(e.key.toUpperCase());
 
-        // sets the volume and played the audio#
+        // sets the volume and played the audio
         !powerState
           ? audioElement.volume = 0
           : audioElement.volume = audioVolume;
@@ -23,7 +30,7 @@ export const DrumPadGenerator = ({ sounds, setMessage, audioVolume, powerState }
           ? setMessage('')
           : setMessage(audioElement.parentElement.id);
 
-        // sets visual effect for the triggered button
+        // sets visual effect for the triggered drumButton
         audioElement.parentElement.classList.add('keyPush');
         setTimeout(() => {
           audioElement.parentElement.classList.remove('keyPush');
@@ -44,9 +51,9 @@ export const DrumPadGenerator = ({ sounds, setMessage, audioVolume, powerState }
     !powerState
       ? setMessage('')
       : setMessage(e.target.id);
-
   }
 
+  // creats the drumButtons 
   const buttons = sounds.map((sound) => {
     return (
       <DrumButton

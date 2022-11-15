@@ -1,13 +1,16 @@
 import './App.css';
 import { DrumMachine } from './components/drumMachine';
-import { sounds } from './sounds'
+import { soundsBank1 } from './sounds';
+import { soundsBank2 } from './sounds2';
 
 
 function App() {
 
   return (
     <div id='app'>
-      <DrumMachine sounds={sounds} />
+      <DrumMachine
+        soundsBank1={soundsBank1}
+        soundsBank2={soundsBank2} />
     </div>
   );
 }
