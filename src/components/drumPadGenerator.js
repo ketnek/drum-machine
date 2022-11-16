@@ -42,7 +42,7 @@ export const DrumPadGenerator = (
   const playAudio = (e) => {
 
     // sets the volume and played the audio
-    e.target.children[0].volume = document.getElementById('volumeSlider').value / 100;
+    e.target.children[0].volume = audioVolume;
     if (powerState) {
       e.target.children[0].play();
     }
