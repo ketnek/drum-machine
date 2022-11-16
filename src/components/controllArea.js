@@ -10,7 +10,6 @@ export const ControllArea = (
   {
     displayMessage,
     setVolume,
-    bankState,
     powerState,
     setBankState,
     setPowerState
@@ -20,7 +19,6 @@ export const ControllArea = (
   return (
     <div id="controllArea">
       <PowerSwitch
-        powerState={powerState}
         setPowerState={setPowerState} />
       <Display
         powerState={powerState}
@@ -28,7 +26,6 @@ export const ControllArea = (
       <VolumeSlider
         setVolume={setVolume} />
       <BankSwitch
-        bankState={bankState}
         setBankState={setBankState} />
     </div>
   );

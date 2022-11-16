@@ -10,7 +10,10 @@ export const VolumeSlider = ({ setVolume }) => {
 
   return (
     <div id="volumeSliderContainer">
-      <input onChange={(e) => handleVolume(e)} id="volumeSlider" type='range' />
+      <input
+        onChange={(e) => handleVolume(e)}
+        id="volumeSlider"
+        type='range' />
     </div>
   );
 }

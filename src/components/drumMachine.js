@@ -27,7 +27,6 @@ export const DrumMachine = ({ soundsBank1, soundsBank2 }) => {
         displayMessage={displayMessage}
         setVolume={setVolume}
         powerState={powerState}
-        bankState={bankState}
         setBankState={setBankState}
         setPowerState={setPowerState} />
     </div>

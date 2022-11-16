@@ -2,21 +2,18 @@ import React from "react";
 import { ToggleSwitch } from "./toggleSwitch";
 
 
-export const BankSwitch = ({ bankState, setBankState }) => {
+export const BankSwitch = ({ setBankState }) => {
 
   const handleClick = (e) => {
-    if (e.target.id === 'bankSwitch' && bankState) {
-      setBankState(false);
-    } else {
-      setBankState(true);
-    }
+    e.target.checked
+      ? setBankState(false)
+      : setBankState(true)
   }
 
   return (
     <ToggleSwitch
       id='bankSwitch'
       headline='Bank'
-      handleClick={handleClick}
-    />
+      handleClick={handleClick} />
   );
 }

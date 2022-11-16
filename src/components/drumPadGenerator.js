@@ -13,6 +13,7 @@ export const DrumPadGenerator = (
 
   // Keyboard controlling
   useEffect(() => {
+
     document.addEventListener('keypress',
       (e) => {
 
@@ -20,15 +21,13 @@ export const DrumPadGenerator = (
         const audioElement = document.getElementById(e.key.toUpperCase());
 
         // sets the volume and played the audio
-        !powerState
-          ? audioElement.volume = 0
-          : audioElement.volume = audioVolume;
-        audioElement.play();
+        audioElement.volume = audioVolume;
+        if (!document.getElementById('powerSwitch').checked) {
+          audioElement.play();
+        }
 
         // sets message for the display component
-        !powerState
-          ? setMessage('')
-          : setMessage(audioElement.parentElement.id);
+        setMessage(audioElement.parentElement.id);
 
         // sets visual effect for the triggered drumButton
         audioElement.parentElement.classList.add('keyPush');
@@ -42,15 +41,13 @@ export const DrumPadGenerator = (
   const playAudio = (e) => {
 
     // sets the volume and played the audio
-    !powerState
-      ? e.target.children[0].volume = 0
-      : e.target.children[0].volume = audioVolume;
-    e.target.children[0].play();
+    e.target.children[0].volume = audioVolume;
+    if (powerState) {
+      e.target.children[0].play();
+    }
 
     // sets message for the display component
-    !powerState
-      ? setMessage('')
-      : setMessage(e.target.id);
+    setMessage(e.target.id);
   }
 
   // creats the drumButtons 
@@ -64,8 +61,7 @@ export const DrumPadGenerator = (
         handleClick={playAudio}
         powerState={powerState}
         setMessage={setMessage}
-        audioVolume={audioVolume}
-      />
+        audioVolume={audioVolume} />
     );
   });
 
