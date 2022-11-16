@@ -21,7 +21,7 @@ export const DrumPadGenerator = (
         const audioElement = document.getElementById(e.key.toUpperCase());
 
         // sets the volume and played the audio
-        audioElement.volume = audioVolume;
+        audioElement.volume = document.getElementById('volumeSlider').value / 100;
         if (!document.getElementById('powerSwitch').checked) {
           audioElement.play();
         }
@@ -35,13 +35,14 @@ export const DrumPadGenerator = (
           audioElement.parentElement.classList.remove('keyPush');
         }, 200);
       })
+
   });
 
   // Mouse controlling
   const playAudio = (e) => {
 
     // sets the volume and played the audio
-    e.target.children[0].volume = audioVolume;
+    e.target.children[0].volume = document.getElementById('volumeSlider').value / 100;
     if (powerState) {
       e.target.children[0].play();
     }
